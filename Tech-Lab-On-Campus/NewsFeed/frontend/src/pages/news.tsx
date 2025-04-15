@@ -1,7 +1,7 @@
 import NewsCard from "@/components/NewsCard";
 import NewsFeed from "@/components/NewsFeed";
 import {useState, useEffect } from "react";
-
+import newsFeed from "../../API/newsFeed";
 import { Article } from "@/utils/types";
 
 
@@ -53,10 +53,19 @@ export default function News() {
     const [articles, setArticles] = useState<Article[]>(moreNews);
     const [featuredArticle, setFeaturedArticle] = useState<Article>(mainStory);
 
+    const { newsFeedData, featuredArticleData } = newsFeed()
+
     // PART 4: Fetch the data from the API that the backend partner builds to
     //         populate real data to the page.
+
+
     useEffect(() => {
         const fetchData = async () => {
+            const newsfeed = await newsFeedData()
+            const featuredArticle = await featuredArticleData()
+
+            setArticles(newsfeed.data);
+            setFeaturedArticle( featuredArticle.data)
             // 1. Fetch the featured article from '/api/news/get-featured-article'
             // 2. Fetch the news feed data from '/api/news/get-newsfeed'
             // 3. Use the `set` functions defined above to update the `articles` and `featuredArticle` variables
