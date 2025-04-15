@@ -23,6 +23,11 @@ function FeaturedNewsCard({ article }: NewsCardProps) {
             <span className='instruction'>Part 1: Show Featured News</span>
             <div className="featured-news-card">
                 {/* TODO: Remove the span above and implement "FeaturedNewsCard" */}
+                <h1>{article.name} </h1>
+
+                <img src={article.image} />
+                <p className="truncate-text">{article.body}</p>
+                
             </div>
         </>
     );

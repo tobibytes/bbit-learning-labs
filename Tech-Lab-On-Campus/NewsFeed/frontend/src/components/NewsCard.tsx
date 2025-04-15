@@ -26,6 +26,10 @@ function NewsCard({ article }: NewsCardProps) {
             <div className="news-info">
                 {/* TODO: Remove the span below and implement a reusable NewsCard */}
                 <span className='instruction'>Part 2: Build Reusable News Card</span>
+                <h1>{article.name} </h1>
+
+                <img src={article.image} />
+                <p className="truncate-text">{article.body}</p>
             </div>
         </div>
     );

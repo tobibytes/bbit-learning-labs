@@ -32,7 +32,7 @@ const newsFeed = () => {
       
           if (response.status === 200) {
             const data = await response.json();
-            return { success: true, data };
+            return { success: true, data: data};
           }
       
           return { success: false, error: 'Unexpected response status: ' + response.status };
