@@ -20,10 +20,17 @@ function FeaturedNewsCard({ article }: NewsCardProps) {
 
     return (
         <>
-            <span className='instruction'>Part 1: Show Featured News</span>
+        k<Link href={article.url} target="_blank">
+            <span className='instruction'>{article.title}</span>
             <div className="featured-news-card">
                 {/* TODO: Remove the span above and implement "FeaturedNewsCard" */}
+                <h1>{article.author} </h1>
+
+                <img src={article.image_url} />
+                <p className="truncate-text">{article.body.slice(0, 30)}</p>
+                
             </div>
+        </Link>
         </>
     );
 }

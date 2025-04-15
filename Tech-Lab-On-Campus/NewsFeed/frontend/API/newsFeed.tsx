@@ -22,16 +22,16 @@ const newsFeed = () => {
         }
     };
 
-    const featuredArticleData = async() => {
-        // Define the sendingTranscript function
-        const sendingTranscript = async (): Promise<
+    
+        const featuredArticleData = async (): Promise<
         { success: true; data: any } | { success: false; error: string }
       > => {
         try {
-          const response = await fetch('http://localhost:8000/get-featured-article"');
+          const response = await fetch('http://localhost:8000/get-featured-article');
       
           if (response.status === 200) {
             const data = await response.json();
+            console.log('f data',data)
             return { success: true, data: data };
           }
       
@@ -40,7 +40,7 @@ const newsFeed = () => {
           return { success: false, error: error?.message || 'Unknown error' };
         }
       };
-    }
+    
 
   return {
     newsFeedData,

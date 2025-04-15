@@ -16,12 +16,15 @@ function NewsFeed({ articles }: NewsFeedProps ) {
     // Hint: Array.map() may be useful here: https://www.geeksforgeeks.org/typescript-array-map-method/
 
     return (
+        
         <div className="stories-container">
             <div className="stories-grid">
             {/* TODO: Remove the spans below and show a feed of news articles  */}
-                <span className='instruction'>Part 3: Implement News Feed</span>
-                <span className='instruction'>Part 3: Implement News Feed</span>
-                <span className='instruction'>Part 3: Implement News Feed</span>
+                {
+                    articles.map((article, index) => (
+                        <NewsCard article={article} key={index} />
+                    ))
+                }
             </div>
         </div>
     );

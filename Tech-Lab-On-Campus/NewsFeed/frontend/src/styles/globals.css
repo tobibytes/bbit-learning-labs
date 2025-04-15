@@ -50,6 +50,12 @@ There are plenty of different styling frameworks to use, and we encourage you to
   @apply text-title text-left;
 }
 
+.truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .featured-story-summary {
   overflow: hidden;
   text-overflow: ellipsis;

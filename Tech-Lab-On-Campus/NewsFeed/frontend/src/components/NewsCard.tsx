@@ -22,12 +22,19 @@ function NewsCard({ article }: NewsCardProps) {
     // Hint: Some classes in `globals.css` could help with styling
 
     return (
+        <Link href={article.url} target="_blank">
+
         <div className="news-card">
             <div className="news-info">
                 {/* TODO: Remove the span below and implement a reusable NewsCard */}
-                <span className='instruction'>Part 2: Build Reusable News Card</span>
+                <span className='instruction'>{article.title}</span>
+                <h1>{article.author} </h1>
+
+                <img src={article.image_url} />
+                <p className="truncate-text">{article.body.slice(0, 30)}</p>
             </div>
         </div>
+        </Link>
     );
 }
 
