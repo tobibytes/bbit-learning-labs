@@ -61,10 +61,12 @@ export default function News() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const newsfeed = await newsFeedData()
+            const newsfeedArticle = await newsFeedData()
             const featuredArticle = await featuredArticleData()
+            console.log(newsfeedArticle)
+            console.log(featuredArticle)
 
-            setArticles(newsfeed.data);
+            setArticles(newsfeedArticle.data);
             setFeaturedArticle( featuredArticle.data)
             // 1. Fetch the featured article from '/api/news/get-featured-article'
             // 2. Fetch the news feed data from '/api/news/get-newsfeed'

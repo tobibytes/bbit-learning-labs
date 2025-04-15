@@ -9,7 +9,7 @@ const newsFeed = () => {
         { success: true; data: any } | { success: false; error: string }
     > => {
         try {
-        const response = await fetch('http://127.0.0.1:8000/get-newsfeed');
+        const response = await fetch('http://localhost:8000/get-newsfeed');
     
         if (response.status === 200) {
             const data = await response.json();
@@ -28,11 +28,11 @@ const newsFeed = () => {
         { success: true; data: any } | { success: false; error: string }
       > => {
         try {
-          const response = await fetch('http://127.0.0.1:8000/get-featured-article"');
+          const response = await fetch('http://localhost:8000/get-featured-article"');
       
           if (response.status === 200) {
             const data = await response.json();
-            return { success: true, data };
+            return { success: true, data: data };
           }
       
           return { success: false, error: 'Unexpected response status: ' + response.status };

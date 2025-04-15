@@ -3,15 +3,17 @@
 import os
 
 from flask import Flask, Response, jsonify
-
+from flask_cors import CORS
 from app import newsfeed
 from app.utils.file_loader import load_json_files
+
 from app.utils.redis import REDIS_CLIENT
 
 
 def create_app():
     """Create a Flask app instance."""
     app = Flask("app")
+    CORS(app)
 
     # Load JSON files into Redis
     dataset_directory = os.path.join(os.path.dirname(__file__), "../resources/dataset/news")
@@ -26,12 +28,14 @@ def create_app():
     def get_newsfeed() -> Response:
         """Flask route to get the latest newsfeed from datastore."""
         # PART 1
-        return jsonify({}, 200)
+        data = newsfeed.get_all_news()
+        return jsonify(data), 200
 
     @app.route("/get-featured-article", methods=["GET"])
     def get_featured_article() -> Response:
         """Flask route to get the featured article from datastore."""
         # PART 2
-        return jsonify({}, 200)
+        data = newsfeed.get_featured_news()
+        return jsonify(data), 200
 
     return app

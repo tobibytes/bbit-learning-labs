@@ -1,10 +1,9 @@
 """Flask app instance creation for Tech Lab 2025."""
 
-from flask import Flask, Response, jsonify
-
 from app import newsfeed
 from app.utils.file_loader import load_json_files
 from app.utils.redis import REDIS_CLIENT
+from flask import Flask, Response, jsonify
 
 
 def create_app():
